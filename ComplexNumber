@@ -1,0 +1,92 @@
+package lausegger.complexcalculator
+
+/**
+*
+* @author Michae Lausegger
+*
+*/
+
+public class ComplexNumber {
+
+ public double real = 0;
+ public double imaginaer = 0;
+ 
+ public double  getBetrag(){
+   return Math.sqrt(real*real + imaginaer*imaginaer);
+ }
+ 
+ public double getWinkel(){
+   double t = Math.atan2(imaginaer,real);
+   return (Math.toDegrees(t)); 
+ } 
+   
+ public void setPolar(double betrag, double winkel){
+   real = betrag * Math.cos(Math.toRadians(winkel));
+   imaginaer = betrag * Math.sin(Math.toRadians(winkel));
+ }
+ 
+ public static void main (String[] args){
+   ComplexNumber z1 = new ComplexNumber();
+   
+   // Test number of complexes with different quadrants
+   z1.real = 2;
+   z1.imaginaer = 2;
+   System.out.println("z1 2+j2: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   z1.real = -2;
+   z1.imaginaer = 2;
+   System.out.println("z1 -2+j2: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   z1.real = -2;
+   z1.imaginaer = -2;
+   System.out.println("z1 -2-j2: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   z1.real = 2;
+   z1.imaginaer = -2;
+   System.out.println("z1 2-j2: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   // Test with 0 values
+   z1.real = 2;
+   z1.imaginaer = 0;
+   System.out.println("z1 2+j0: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   z1.real = 0;
+   z1.imaginaer = 2;
+   System.out.println("z1 0+j2: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   z1.real = -2;
+   z1.imaginaer = 0;
+   System.out.println("z1 -2-j0: " + z1.getBetrag()+"/"+z1.getWinkel());
+   
+   z1.real = 0;
+   z1.imaginaer = -2;
+   System.out.println("z1 0-j2: " + z1.getBetrag()+"/"+z1.getWinkel());
+ 
+   // set Polar
+   z1.setPolar(2.828427, 45);
+   System.out.println("z1:(2.828427, 45) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, 135);
+   System.out.println("z1:(2.828427, 135) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, -135);
+   System.out.println("z1:(2.828427, -135) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, -45);
+   System.out.println("z1:(2.828427, -45) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, 0);
+   System.out.println("z1:(2.828427, 0) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, 90);
+   System.out.println("z1:(2.828427, 90) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, 180);
+   System.out.println("z1:(2.828427, 180) = " + z1.real + "+j" + z1.imaginaer );
+
+   z1.setPolar(2.828427, -90);
+   System.out.println("z1:(2.828427, -90) = " + z1.real + "+j" + z1.imaginaer );
+
+ 
+ }
+}
