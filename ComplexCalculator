@@ -1,0 +1,439 @@
+package lauegger.complexcalc;
+
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+/**
+ *
+ * @author  Michael Lausegger
+ *
+ */
+ 
+public class KomplexCalculator extends javax.swing.JFrame {
+
+    private ComplexNumber z1 = new ComplexNumber();
+    private ComplexNumber z2 = new ComplexNumber();
+    
+    private ComplexNumber erg = ComplexNumber();
+    
+    /** Creates new form KomplexCalculator */
+    public KomplexCalculator() {
+    try {
+      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+    } catch (ClassNotFoundException ex) {
+      Logger.getLogger(KomplexCalculator.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+      Logger.getLogger(KomplexCalculator.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+      Logger.getLogger(KomplexCalculator.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (UnsupportedLookAndFeelException ex) {
+      Logger.getLogger(KomplexCalculator.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        initComponents();
+        z1.real = 0.0;
+        z1.imaginaer = 0.0;
+        
+        z2.real = 0.0;
+        z2.imaginaer = 0.0;
+        
+    }
+
+  
+  private void initComponents() {
+
+    tfz1real = new javax.swing.JTextField();
+    tfz1img = new javax.swing.JTextField();
+    jLabel1 = new javax.swing.JLabel();
+    bz1 = new javax.swing.JButton();
+    tfz1betrag = new javax.swing.JTextField();
+    tfz1winkel = new javax.swing.JTextField();
+    jLabel2 = new javax.swing.JLabel();
+    jLabel3 = new javax.swing.JLabel();
+    jLabel4 = new javax.swing.JLabel();
+    tfz2real = new javax.swing.JTextField();
+    jLabel5 = new javax.swing.JLabel();
+    tfz2img = new javax.swing.JTextField();
+    bz2 = new javax.swing.JButton();
+    tfz2betrag = new javax.swing.JTextField();
+    jLabel6 = new javax.swing.JLabel();
+    tfz2winkel = new javax.swing.JTextField();
+    jLabel7 = new javax.swing.JLabel();
+    tfergreal = new javax.swing.JTextField();
+    jLabel8 = new javax.swing.JLabel();
+    tfergimg = new javax.swing.JTextField();
+    tfergbetrag = new javax.swing.JTextField();
+    jLabel9 = new javax.swing.JLabel();
+    tfergwinkel = new javax.swing.JTextField();
+    jLabel10 = new javax.swing.JLabel();
+    jLabel11 = new javax.swing.JLabel();
+    jLabel12 = new javax.swing.JLabel();
+    jLabel13 = new javax.swing.JLabel();
+    bplus = new javax.swing.JButton();
+    bminus = new javax.swing.JButton();
+    bdiv = new javax.swing.JButton();
+    bmul = new javax.swing.JButton();
+    jLabel14 = new javax.swing.JLabel();
+
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("KomplexCalculator");
+
+    tfz1real.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    tfz1img.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    tfz1img.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        tfz1imgFocusLost(evt);
+      }
+    });
+
+    jLabel1.setText("+ j");
+
+    bz1.setText("Z,\u03C6 >");
+    bz1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        bz1ActionPerformed(evt);
+      }
+    });
+
+    tfz1betrag.setBackground(new java.awt.Color(204, 204, 204));
+    tfz1betrag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    tfz1winkel.setBackground(new java.awt.Color(204, 204, 204));
+    tfz1winkel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel2.setText("/");
+
+    jLabel3.setText("Number 1");
+
+    jLabel4.setText("Number 2");
+
+    tfz2real.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel5.setText("+ j");
+
+    tfz2img.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+    tfz2img.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        tfz2imgFocusLost(evt);
+      }
+    });
+
+    bz2.setText("Z,\u03C6 >");
+    bz2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        bz2ActionPerformed(evt);
+      }
+    });
+
+    tfz2betrag.setBackground(new java.awt.Color(204, 204, 204));
+    tfz2betrag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel6.setText("/");
+
+    tfz2winkel.setBackground(new java.awt.Color(204, 204, 204));
+    tfz2winkel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel7.setText("Erg.");
+
+    tfergreal.setBackground(new java.awt.Color(204, 255, 204));
+    tfergreal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel8.setText("+ j");
+
+    tfergimg.setBackground(new java.awt.Color(204, 255, 204));
+    tfergimg.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    tfergbetrag.setBackground(new java.awt.Color(204, 255, 204));
+    tfergbetrag.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel9.setText("/");
+
+    tfergwinkel.setBackground(new java.awt.Color(204, 255, 204));
+    tfergwinkel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+    jLabel10.setText("real part");
+
+    jLabel11.setText("imaginary part");
+
+    jLabel12.setText("amount");
+
+    jLabel13.setText("angle");
+
+    bplus.setText("+");
+    bplus.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        bplusActionPerformed(evt);
+      }
+    });
+
+    bminus.setText("-");
+    bminus.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        bminusActionPerformed(evt);
+      }
+    });
+
+    bdiv.setText("/");
+    bdiv.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        bdivActionPerformed(evt);
+      }
+    });
+
+    bmul.setText("x");
+    bmul.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        bmulActionPerformed(evt);
+      }
+    });
+
+    jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel14.setText("--->");
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+        .addGap(26, 26, 26)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jLabel3)
+          .addComponent(jLabel4)
+          .addComponent(jLabel7))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jLabel10)
+          .addComponent(tfz1real, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfz2real, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfergreal, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(layout.createSequentialGroup()
+            .addComponent(bplus)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(bminus)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(bmul)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(bdiv))
+          .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel8)
+              .addComponent(jLabel5)
+              .addComponent(jLabel1))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(tfz1img, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(tfz2img, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(tfergimg, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel11))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+              .addComponent(bz1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(bz2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(tfz1betrag, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(tfz2betrag, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(tfergbetrag, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabel12))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel2)
+              .addComponent(jLabel6)
+              .addComponent(jLabel9))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel13)
+              .addComponent(tfz1winkel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(tfz2winkel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(tfergwinkel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        .addContainerGap(15, Short.MAX_VALUE))
+    );
+    layout.setVerticalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+          .addComponent(jLabel10)
+          .addComponent(jLabel11)
+          .addComponent(jLabel12)
+          .addComponent(jLabel13))
+        .addGap(7, 7, 7)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel1)
+          .addComponent(tfz1real, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfz1img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(bz1)
+          .addComponent(jLabel2)
+          .addComponent(jLabel3)
+          .addComponent(tfz1betrag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfz1winkel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel5)
+          .addComponent(tfz2img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(bz2)
+          .addComponent(jLabel6)
+          .addComponent(jLabel4)
+          .addComponent(tfz2real, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfz2betrag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfz2winkel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(12, 12, 12)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(bminus)
+          .addComponent(bmul)
+          .addComponent(bplus)
+          .addComponent(bdiv))
+        .addGap(18, 18, 18)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel8)
+          .addComponent(tfergreal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfergimg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel9)
+          .addComponent(jLabel7)
+          .addComponent(tfergbetrag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(tfergwinkel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabel14))
+        .addContainerGap(27, Short.MAX_VALUE))
+    );
+
+    pack();
+  }
+
+  
+  // Action handler
+private void bz1ActionPerformed(java.awt.event.ActionEvent evt) {
+  z1.real = Double.parseDouble( tfz1real.getText());
+  z1.imaginaer = Double.parseDouble(tfz1img.getText());
+  tfz1betrag.setText(""+ roundDouble(z1.getBetrag()));
+  tfz1winkel.setText(""+ roundDouble(z1.getWinkel()));
+}
+
+private void bz2ActionPerformed(java.awt.event.ActionEvent evt) {
+  z2.real = Double.parseDouble( tfz2real.getText());
+  z2.imaginaer = Double.parseDouble(tfz2img.getText());
+  tfz2betrag.setText(""+ roundDouble(z2.getBetrag()));
+  tfz2winkel.setText(""+ roundDouble(z2.getWinkel()));
+}
+
+private void bplusActionPerformed(java.awt.event.ActionEvent evt) {
+  
+  getValues();
+  erg.real = z1.real + z2.real;
+  erg.imaginaer = z1.imaginaer+ z2.imaginaer; 
+  showErgebnis();
+
+            
+}
+
+private void bminusActionPerformed(java.awt.event.ActionEvent evt) {
+  getValues();
+  erg.real = z1.real - z2.real;
+  erg.imaginaer = z1.imaginaer - z2.imaginaer;
+  showErgebnis();
+}
+
+private void bmulActionPerformed(java.awt.event.ActionEvent evt) {
+  getValues();
+  erg.setPolar(z1.getBetrag()*z2.getBetrag(),z1.getWinkel()+z2.getWinkel());
+  showErgebnis();
+}
+
+private void bdivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdivActionPerformed
+  getValues();
+  erg.setPolar(z1.getBetrag()/z2.getBetrag(),z1.getWinkel()-z2.getWinkel());
+  showErgebnis();
+}
+
+private void tfz1imgFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfz1imgFocusLost
+  z1.real = Double.parseDouble( tfz1real.getText());
+  z1.imaginaer = Double.parseDouble(tfz1img.getText());
+  tfz1betrag.setText(""+ roundDouble(z1.getBetrag()));
+  tfz1winkel.setText(""+ roundDouble(z1.getWinkel()));
+}
+
+private void tfz2imgFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfz2imgFocusLost
+  z2.real = Double.parseDouble( tfz2real.getText());
+  z2.imaginaer = Double.parseDouble(tfz2img.getText());
+  tfz2betrag.setText(""+ roundDouble(z2.getBetrag()));
+  tfz2winkel.setText(""+ roundDouble(z2.getWinkel()));
+}
+
+// rounded to three decimal places
+private double  roundDouble(double x){
+  return (Math.round(x*1000.0)/1000.0);
+}
+
+// Get the current values from the text boxes
+private void getValues(){
+  z1.real = Double.parseDouble( tfz1real.getText());
+  z1.imaginaer = Double.parseDouble(tfz1img.getText());
+  z2.real = Double.parseDouble( tfz2real.getText());
+  z2.imaginaer = Double.parseDouble(tfz2img.getText());
+}
+
+//See the result in the Result text box
+private void showErgebnis(){
+  tfergreal.setText(""+roundDouble(erg.real));
+  tfergimg.setText(""+roundDouble(erg.imaginaer));
+  tfergbetrag.setText(""+ roundDouble(erg.getBetrag()));
+  tfergwinkel.setText(""+ roundDouble(erg.getWinkel()));
+}
+
+
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String args[]) {
+      try {
+    		UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+    	} catch (Throwable e) {
+    		e.printStackTrace();
+    	}
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new KomplexCalculator().setVisible(true);
+            }
+        });
+    }
+
+  // Variables declaration 
+  private javax.swing.JButton bdiv;
+  private javax.swing.JButton bminus;
+  private javax.swing.JButton bmul;
+  private javax.swing.JButton bplus;
+  private javax.swing.JButton bz1;
+  private javax.swing.JButton bz2;
+  private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel10;
+  private javax.swing.JLabel jLabel11;
+  private javax.swing.JLabel jLabel12;
+  private javax.swing.JLabel jLabel13;
+  private javax.swing.JLabel jLabel14;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
+  private javax.swing.JLabel jLabel6;
+  private javax.swing.JLabel jLabel7;
+  private javax.swing.JLabel jLabel8;
+  private javax.swing.JLabel jLabel9;
+  private javax.swing.JTextField tfergbetrag;
+  private javax.swing.JTextField tfergimg;
+  private javax.swing.JTextField tfergreal;
+  private javax.swing.JTextField tfergwinkel;
+  private javax.swing.JTextField tfz1betrag;
+  private javax.swing.JTextField tfz1img;
+  private javax.swing.JTextField tfz1real;
+  private javax.swing.JTextField tfz1winkel;
+  private javax.swing.JTextField tfz2betrag;
+  private javax.swing.JTextField tfz2img;
+  private javax.swing.JTextField tfz2real;
+  private javax.swing.JTextField tfz2winkel;
+  
+
